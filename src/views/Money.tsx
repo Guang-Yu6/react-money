@@ -6,6 +6,12 @@ const TagsSection = styled.section`
   background: #FFFFFF;
   border: 1px solid red;
   padding: 12px 16px;//上下左右
+  // 分割线
+  flex-grow: 1; // 尽量的高
+  display: flex;
+  flex-direction: column;//上下结构
+  justify-content: flex-end; // 靠下
+  align-items: flex-end;// 从左到右，靠右的意思，靠左就是start
   > ol {
     margin: 0 -12px;  // 平均布局
     > li{
@@ -124,10 +130,14 @@ const NumberPadSection = styled.section`
     }
   }
 `;
-
+const MyLayout = styled(Layout)`
+  border: 1px solid darkseagreen;
+  display: flex;
+  flex-direction: column;
+`
 function Money() {
   return (
-    <Layout>
+    <MyLayout>
       <TagsSection>
         <ol>
           <li>衣</li>
@@ -137,21 +147,18 @@ function Money() {
         </ol>
         <button>新增标签</button>
       </TagsSection>
-
       <NotesSection>
         <label>
           <span>备注</span>
           <input type="text" placeholder="在这里添加备注" />
         </label>
       </NotesSection>
-
       <CategorySection>
         <ul>
           <li className="selected">支出</li>
           <li>收入</li>
         </ul>
       </CategorySection>
-
       <NumberPadSection>
         <div className="output">100</div>
         <div className="pad clearfix">
@@ -171,7 +178,7 @@ function Money() {
           <button className="dot">.</button>
         </div>
       </NumberPadSection>
-    </Layout>
+    </MyLayout>
   );
 }
 
