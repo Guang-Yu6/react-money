@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import React from 'react';
+require('icons/money.svg'); // svgo-loader =>
+require('icons/tags.svg');
+require('icons/statistics.svg');
 
 const NavWrapper = styled.nav`
   //border: 1px solid blue;
@@ -11,7 +14,14 @@ const NavWrapper = styled.nav`
     > li{
       width: 33.333333%;  // 分开他们3个标签
       text-align: center;   // 字居中
-      padding: 16px;
+      display: flex;
+      flex-direction: column;//shang xia 
+      padding: 4px 0;
+      align-items: center; // 居中
+      .icon {
+          width: 24px;
+          height: 24px;
+      }
     }
   }
 `;
@@ -21,12 +31,23 @@ const Nav = ()=>{
     <NavWrapper>
       <ul>
         <li>
+          <svg className="icon">
+            <use xlinkHref="#tags"/>
+          </svg>
           <Link to="tags">标签页</Link>
         </li>
+
         <li>
+          <svg className="icon">
+            <use xlinkHref="#money"/>
+          </svg>
           <Link to="/money">记账页</Link>
         </li>
+
         <li>
+          <svg className="icon">
+            <use xlinkHref="#statistics"/>
+          </svg>
           <Link to="/statistics">统计页</Link>
         </li>
       </ul>
