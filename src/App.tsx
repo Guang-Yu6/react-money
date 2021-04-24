@@ -6,9 +6,10 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import styled from 'styled-components';
-import Nav from './components/Nav';
-import Layout from './components/Layout';
+import Money from './views/Money';
+import Statistics from './views/Statistics';
+import Tags from './views/Tags';
+import NoMatch from './views/NoMatch';
 
 
 
@@ -39,34 +40,5 @@ function App() {
   );
 }
 
-function NoMatch(){
-  return (
-    <div>页面不存在</div>
-  )
-}
-
-function Statistics() {
-  return (
-    <Layout>
-      <h2>统计页</h2>
-    </Layout>
-  )
-}
-
-function Tags() {
-  return (
-    <Layout>
-      <h2>标签页</h2>
-    </Layout>
-  );
-}
-
-function Money() {
-  return (
-    <Layout>
-      <h2>钱页</h2>
-    </Layout>
-  );
-}
 
 export default App;
