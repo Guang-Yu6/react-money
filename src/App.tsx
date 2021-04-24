@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {
   HashRouter as Router,
   Switch,
@@ -9,27 +8,14 @@ import {
 
 import styled from 'styled-components';
 import Nav from './components/Nav';
+import Layout from './components/Layout';
 
-const Wrapper = styled.div`
-  //border:1px solid red;
-  height: 100vh;
-  display: flex;  // 默认左右结构
-  flex-direction: column;  // 变成上下结构
-  
-`;
-const Main = styled.div`
-  //border: 1px solid aquamarine;
-  flex-grow: 1;  // 让他尽量的高
-  overflow: auto; //超出后滚动条
-`;
 
 
 function App() {
   return (
     <Router>
-      <Wrapper>
-
-        <Main><Switch>
+          <Switch>
           <Route path="/tags">
             <Tags />
           </Route>
@@ -48,12 +34,7 @@ function App() {
             <NoMatch />
           </Route>
 
-        </Switch></Main>
-
-        <Nav/>
-
-
-      </Wrapper>
+        </Switch>
     </Router>
   );
 }
@@ -65,15 +46,27 @@ function NoMatch(){
 }
 
 function Statistics() {
-  return <h2>统计页面</h2>;
+  return (
+    <Layout>
+      <h2>统计页</h2>
+    </Layout>
+  )
 }
 
 function Tags() {
-  return <h2>标签页面</h2>;
+  return (
+    <Layout>
+      <h2>标签页</h2>
+    </Layout>
+  );
 }
 
 function Money() {
-  return <h2>记账页面</h2>;
+  return (
+    <Layout>
+      <h2>钱页</h2>
+    </Layout>
+  );
 }
 
 export default App;
