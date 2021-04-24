@@ -13,6 +13,7 @@ const NavWrapper = styled.nav`
     > li{
       width: 33.333333%;  // 分开他们3个标签
       text-align: center;   // 字居中
+      > a{
       display: flex;
       flex-direction: column;//shang xia 
       padding: 4px 0;
@@ -21,6 +22,8 @@ const NavWrapper = styled.nav`
           width: 24px;
           height: 24px;
       }
+      }
+      
     }
   }
 `;
@@ -30,18 +33,24 @@ const Nav = ()=>{
     <NavWrapper>
       <ul>
         <li>
-          <Icon name="tags"/>
-          <Link to="tags">标签页</Link>
+          <Link to="tags">
+            <Icon name="tags"/>
+            标签页
+          </Link>
         </li>
 
         <li>
-          <Icon name="money"/>
-          <Link to="/money">记账页</Link>
+          <Link to="/money">
+            <Icon name="money"/>
+            记账页
+          </Link>
         </li>
 
         <li>
-          <Icon name="statistics"/>
-          <Link to="/statistics">统计页</Link>
+          <Link to="/statistics">
+            <Icon name="statistics"/>
+            统计页
+          </Link>
         </li>
       </ul>
     </NavWrapper>
