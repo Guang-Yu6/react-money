@@ -20,6 +20,9 @@ body{
 button{
   font-family: inherit;
 }
+:focus{ // 所有获取焦点的元素去掉选中框
+  outline: none;
+}
 .icon {
   width: 1em;
   height: 1em;

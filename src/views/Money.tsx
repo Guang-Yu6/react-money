@@ -27,10 +27,50 @@ const TagsSection = styled.section`
   }
 `;
 const NotesSection = styled.section`
-
+  border: 1px solid saddlebrown;
+  background: #f5f5f5;
+  padding: 0 16px;
+  font-size: 14px;
+  > label {
+    display: flex;
+    align-items: center; // 上下备注2个字居中了
+    > span{ // 备注惹
+      margin-right: 16px;
+      white-space: nowrap; // 防止伸缩变竖下来
+    }
+    > input{ // 输入框
+      display: block;
+      width: 100%;
+      height: 72px;
+      background: none;
+      border: none;
+    }
+  }
 `;
 const CategorySection = styled.section`
-
+  border:1px solid red;
+  font-size: 24px;
+  > ul{
+    display: flex;
+    background: #c4c4c4;
+    > li {
+      width: 50%;
+      text-align: center; // 居中于屏幕
+      padding: 16px 0;
+      position: relative;
+      &.selected::after{//改成伪元素选择器
+        //border-bottom: 3px solid #333; // 会添加多3px所以废弃
+        content: '';
+        display: block;
+        height: 3px;
+        background: #333;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+      }
+    }
+  }
 `;
 const NumberPadSection = styled.section`
 
@@ -52,13 +92,13 @@ function Money() {
       <NotesSection>
         <label>
           <span>备注</span>
-          <input type="text"/>
+          <input type="text" placeholder="在这里添加备注" />
         </label>
       </NotesSection>
 
       <CategorySection>
         <ul>
-          <li>支出</li>
+          <li className="selected">支出</li>
           <li>收入</li>
         </ul>
       </CategorySection>
