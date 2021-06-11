@@ -38,7 +38,7 @@ const _TagsSection = styled.section`
 const TagsSection:React.FC = (props) => {
   //      读     写               类型                   值
   const [tags,setTags] = useState<string[]>(['衣','食','住','行']);
-
+  //          读          写                 类型              值
   const [selectedTags, setSelectedTags] = useState<string[]>([])
 
   const onAddTag = () => {
@@ -50,18 +50,24 @@ const TagsSection:React.FC = (props) => {
 
   const onToggleTag = (XXX:string)=> {
     const index = selectedTags.indexOf(XXX)
-    if(index >=0){  // 如果下标大于0，证明就有后面的 0 1 2 3 .....
-      setSelectedTags(selectedTags.filter(BBB => BBB !== XXX))
+    if(index >=0){  // 如果下标大于0，证明就有后面的 0 1 2 3 .....，就是已被选中的意思
+      setSelectedTags(selectedTags.filter(BBB => BBB !== XXX))  // 如果 tag 已被选中，就复制所有没有被选中的tag，作为新的 selectedTag
     }else{  // 如果没有被选中
       setSelectedTags([...selectedTags,XXX])
     }
   }
 
+  function xxx(cc:string,hg:string){
+     console.log(cc,hg)
+  }
+
+  xxx('项','下标')
+
   return (
     <_TagsSection>
       <ol>
-        {tags.map
-        (XXX=> <li key={XXX} onClick={()=>{onToggleTag(XXX)}} className={selectedTags.indexOf(XXX)>=0 ? 'selected' : ''}>  {XXX}  </li>)}
+        {tags.map(XXX=>
+          <li key={XXX} onClick={()=>{onToggleTag(XXX)}} className={selectedTags.indexOf(XXX)>=0 ? 'selected' : ''}>  {XXX}  </li>)}
       </ol>
       <button onClick={onAddTag}>新增标签</button>
     </_TagsSection>

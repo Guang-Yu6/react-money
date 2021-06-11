@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+import React, {useState} from 'react';
+import {generateOutput} from './generateOutput';
 
-const NumberPadSection = styled.section`
+const _NumberPadSection = styled.section`
   border: 1px solid whitesmoke;
   display: flex;
   flex-direction: column;  // 上下部剧
@@ -52,5 +54,42 @@ const NumberPadSection = styled.section`
     }
   }
 `;
+
+const NumberPadSection: React.FC = () => {
+  const [output, _setOutput] = useState('0');
+  const setOutput = (output: string) => {
+    if (output.length > 16) {
+      output = output.slice(0, 16);
+    } else if (output.length === 0) {
+      output = '0';
+    }
+    _setOutput(output);
+  };
+
+
+
+  return (
+    <_NumberPadSection>
+      <div className="output">{output}</div>
+      <div className="pad clearfix" >
+        <button data-index="1">1</button>
+        <button data-index="2">2</button>
+        <button data-index="3">3</button>
+        <button data-index="s">删除</button>
+        <button data-index="4">4</button>
+        <button data-index="5">5</button>
+        <button data-index="6">6</button>
+        <button data-index="q">清空</button>
+        <button data-index="7">7</button>
+        <button data-index="8">8</button>
+        <button data-index="9">9</button>
+        <button data-index="ok" className="ok">ok</button>
+        <button data-index="0" className="zero">0</button>
+        <button className="dot">.</button>
+      </div>
+    </_NumberPadSection>
+  )
+
+}
 
 export {NumberPadSection}
